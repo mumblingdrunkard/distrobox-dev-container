@@ -4,6 +4,7 @@ let
 in {
   enable = true;
   enableCompletion = true;
+  autocd = true;
   plugins = [
     { 
       name = "powerlevel10k"; 
