@@ -17,7 +17,10 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [ ];
+  home.packages = [
+    pkgs.nixfmt-rfc-style
+    pkgs.nixd
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -46,10 +49,12 @@
   programs.direnv = import ./programs/direnv.nix { };
   programs.zsh = import ./programs/zsh.nix { inherit pkgs; };
   programs.tmux = import ./programs/tmux.nix { };
-  # programs.zellij = import ./programs/zellij.nix { };
 
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 }
