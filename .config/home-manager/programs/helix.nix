@@ -33,6 +33,13 @@
       nixd = {
         command = "nixd";
       };
+      ccls = {
+        command = "ccls";
+      };
+      rust-analyzer = {
+        command = "rust-analyzer";
+        config.check.command = "clippy";
+      };
     };
     language = [
       {
@@ -44,6 +51,13 @@
         language-servers = [ "nixd" ];
         formatter = {
           command = "nixfmt";
+        };
+      }
+      {
+        name = "c";
+        language-servers = [ "ccls" ];
+        formatter = {
+          command = "clang-format";
         };
       }
     ];
